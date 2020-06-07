@@ -3,7 +3,9 @@
 namespace Teachiq\LaravelCommandLogger\Tests;
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Orchestra\Testbench\TestCase;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -26,20 +28,18 @@ class CommandLoggerTest extends TestCase
     /** @test */
     public function commands_executed_are_logged()
     {
-        Storage::delete('commands.log');
-        $this->assertFalse(Storage::exists('commands.log'));
+        Log::swap(new \TiMacDonald\Log\LogFake);
 
         $this->artisan('route:list');
 
-        $this->assertTrue(Storage::exists('commands.log'));
+        Log::channel('command')->assertLogged('debug', function ($message, $context) {
+            return Str::contains($message, 'Starting route:list');
+        });
 
         $this->artisan('help');
 
-        $commandLog = Storage::get('commands.log');
-
-        $this->assertStringContainsString('Starting route:list', $commandLog);
-        $this->assertStringContainsString('Finished route:list', $commandLog);
-        $this->assertStringContainsString('Starting help', $commandLog);
-        $this->assertStringContainsString('Finished help', $commandLog);
+        Log::channel('command')->assertLogged('debug', function ($message, $context) {
+            return Str::contains($message, 'Starting help');
+        });
     }
 }

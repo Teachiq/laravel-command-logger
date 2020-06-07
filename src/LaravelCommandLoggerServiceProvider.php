@@ -12,4 +12,9 @@ class LaravelCommandLoggerServiceProvider extends EventServiceProvider
         CommandStarting::class => [CommandStartingListener::class],
         CommandFinished::class => [CommandFinishedListener::class],
     ];
+
+    public function register()
+    {
+        $this->mergeConfigFrom(__DIR__.'/config/command-log.php', 'command-log');
+    }
 }
