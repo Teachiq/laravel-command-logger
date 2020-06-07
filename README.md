@@ -16,6 +16,14 @@ composer require teachiq/laravel-command-logger
 
 The package auto-registers. The log is saved by default to `storage/logs/command.log`.
 
+## Example output
+```log
+[2020-06-07 10:30:10] local.DEBUG: Starting package:discover at 2020-06-07 10:30:10  
+[2020-06-07 10:30:10] local.DEBUG: Finished package:discover at 2020-06-07 10:30:10 (0.19159507751465)  
+[2020-06-07 10:30:14] local.DEBUG: Starting route:list at 2020-06-07 10:30:14  
+[2020-06-07 10:30:14] local.DEBUG: Finished route:list at 2020-06-07 10:30:14 (0.34346413612366)  
+```
+
 ### Testing
 
 ``` bash
