@@ -33,13 +33,21 @@ class CommandLoggerTest extends TestCase
         $this->artisan('route:list');
 
         Log::channel('command')->assertLogged('debug', function ($message, $context) {
-            return Str::contains($message, 'Starting route:list');
+            return Str::contains($message, 'Starting route:list at');
+        });
+
+        Log::channel('command')->assertLogged('debug', function ($message, $context) {
+            return Str::contains($message, 'Finished route:list at');
         });
 
         $this->artisan('help');
 
         Log::channel('command')->assertLogged('debug', function ($message, $context) {
-            return Str::contains($message, 'Starting help');
+            return Str::contains($message, 'Starting help at');
+        });
+
+        Log::channel('command')->assertLogged('debug', function ($message, $context) {
+            return Str::contains($message, 'Finished help at');
         });
     }
 }
