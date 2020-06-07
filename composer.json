@@ -1,0 +1,50 @@
+{
+    "name": "teachiq/laravel-command-logger",
+    "description": "Log commands with their execution time",
+    "keywords": [
+        "teachiq",
+        "laravel-command-logger"
+    ],
+    "homepage": "https://github.com/teachiq/laravel-command-logger",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Martin Krisell (Teachiq AB)",
+            "email": "martin.krisell@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "illuminate/support": "^7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Teachiq\\LaravelCommandLogger\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Teachiq\\LaravelCommandLogger\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Teachiq\\LaravelCommandLogger\\LaravelCommandLoggerServiceProvider"
+            ]
+        }
+    }
+}
