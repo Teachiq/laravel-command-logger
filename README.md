@@ -14,7 +14,7 @@ composer require teachiq/laravel-command-logger
 
 ## Usage
 
-The package auto-registers. The log is saved storage/app/commands.log.
+The package auto-registers. The log is saved `storage/app/commands.log`.
 
 ### Testing
 
