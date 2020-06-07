@@ -33,9 +33,13 @@ class CommandLoggerTest extends TestCase
 
         $this->assertTrue(Storage::exists('commands.log'));
 
+        $this->artisan('help');
+
         $commandLog = Storage::get('commands.log');
 
         $this->assertStringContainsString('Starting route:list', $commandLog);
         $this->assertStringContainsString('Finished route:list', $commandLog);
+        $this->assertStringContainsString('Starting help', $commandLog);
+        $this->assertStringContainsString('Finished help', $commandLog);
     }
 }
