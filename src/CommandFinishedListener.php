@@ -9,6 +9,10 @@ class CommandFinishedListener
 {
     public function handle($event)
     {
+        if (in_array($event->command, config('command-log.exclude'))) {
+            return;
+        }
+
         // This is set here again since some commands may cache or clear the config
         config(['logging.channels.command' => config('command-log.channel')]);
 

@@ -9,6 +9,10 @@ class CommandStartingListener
 {
     public function handle($event)
     {
+        if (in_array($event->command, config('command-log.exclude'))) {
+            return;
+        }
+
         config(['logging.channels.command' => config('command-log.channel')]);
 
         $time = now();
