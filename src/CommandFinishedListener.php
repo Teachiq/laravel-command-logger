@@ -9,8 +9,13 @@ class CommandFinishedListener
 {
     public function handle($event)
     {
+        // This is set here again since some commands may cache or clear the config
+        config(['logging.channels.command' => config('command-log.channel')]);
+
         $time = now();
         $timeSinceStart = microtime(true) - LARAVEL_START;
-        Log::channel('command')->debug("Finished {$event->command} at {$time} ($timeSinceStart)");
+
+        $prefix = ($timeSinceStart > config('command-log.slow')) ? '__SLOW__ ' : '';
+        Log::channel('command')->debug("{$prefix}Finished {$event->command} at {$time} ($timeSinceStart)");
     }
 }
