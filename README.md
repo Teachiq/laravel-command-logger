@@ -23,7 +23,29 @@ The package auto-registers. The log is saved by default to `storage/logs/command
 [2020-06-07 10:30:14] local.DEBUG: Finished route:list at 2020-06-07 10:30:14 (0.34346413612366)  
 ```
 
-### Testing
+You can configure the pagage by overriding the values in `config/command-log.php` if you want. The default values are the following:
+
+```php
+<?php
+
+return [
+    // The log channel where the logs are written
+    'channel' => [
+        'driver' => 'single',
+        'path' => storage_path('logs/command.log'),
+        'level' => 'debug',
+    ],
+    // Specify any specific commands that should be excluded from logging
+    'exclude' => [
+        'config:cache',
+        'route:cache',
+    ],
+    // Exeuctions longer than this value (in seconds) will be marked with __SLOW__ in the log
+    'slow' => 5,
+];
+```
+
+## Testing
 
 ``` bash
 composer test
