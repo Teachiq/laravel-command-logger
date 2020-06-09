@@ -16,6 +16,6 @@ class CommandFinishedListener
         $timeSinceStart = microtime(true) - LARAVEL_START;
 
         $prefix = ($timeSinceStart > config('command-log.slow')) ? '__SLOW__ ' : '';
-        Log::channel('command')->debug("{$prefix}Finished {$event->command} at {$time} ($timeSinceStart)");
+        Log::channel('command')->debug("{$prefix}Finished {$event->command} at {$time} ($timeSinceStart seconds)");
     }
 }
