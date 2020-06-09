@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/teachiq/laravel-command-logger.svg?style=flat-square)](https://packagist.org/packages/teachiq/laravel-command-logger)
 
-Log the start and finish of all commands, along with their execution time.
+Log the start and finish of all commands, along with their execution time. This is especially useful to detect if scheduled commands (for instance every night) run for longer than expected.
 
 ## Installation
 
