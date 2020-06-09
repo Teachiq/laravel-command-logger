@@ -17,10 +17,10 @@ composer require teachiq/laravel-command-logger
 The package auto-registers. The log is saved by default to `storage/logs/command.log`.
 
 ```log
-[2020-06-07 10:30:14] local.DEBUG: Starting route:list at 2020-06-07 10:30:14  
-[2020-06-07 10:30:14] local.DEBUG: Finished route:list at 2020-06-07 10:30:14 (0.34346413612366 seconds)  
-[2020-06-09 07:36:25] testing.DEBUG: Starting exam:move-teacher at 2020-06-09 07:36:25  
-[2020-06-09 07:36:25] testing.DEBUG: __SLOW__ Finished exam:move-teacher at 2020-06-09 07:36:25 (18.763263940811 seconds)  
+[2020-06-07 10:30:14] environment.DEBUG: Starting route:list at 2020-06-07 10:30:14  
+[2020-06-07 10:30:14] environment.DEBUG: Finished route:list at 2020-06-07 10:30:14 (0.34346413612366 seconds)  
+[2020-06-07 10:36:25] environment.DEBUG: Starting exam:move-teacher at 2020-06-09 07:36:25  
+[2020-06-07 10:36:25] environment.DEBUG: __SLOW__ Finished exam:move-teacher at 2020-06-09 07:36:25 (18.763263940811 seconds)  
 ```
 
 You can configure the pagage by overriding the values in `config/command-log.php` if you want. The default values are the following:
