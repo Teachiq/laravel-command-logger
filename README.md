@@ -1,3 +1,6 @@
+# Deprecation notice
+We are no longer using this package in favor of https://github.com/spatie/laravel-schedule-monitor and Oh Dear (https://ohdear.app/).
+
 # Log commands with their execution time
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/teachiq/laravel-command-logger.svg?style=flat-square)](https://packagist.org/packages/teachiq/laravel-command-logger)
